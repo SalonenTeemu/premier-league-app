@@ -95,7 +95,7 @@ function StandingsTable({
       </div>
 
       <table className="w-full table-auto border-collapse text-center">
-        <thead className="bg-slate-800">
+        <thead className="bg-slate-800 text-slate-50">
           <tr>
             <th className="border border-slate-700 px-4 py-2">Position</th>
             <th className="border border-slate-700 px-4 py-2">Team</th>

@@ -68,15 +68,15 @@ export default function MatchesView({
         <button
           onClick={handlePrevMatchday}
           disabled={currentMatchday === 1}
-          className="btn bg-slate-700 text-white px-4 py-2 mx-1 disabled:bg-slate-500"
+          className="btn bg-slate-700 text-slate-50 px-4 py-2 mx-1 disabled:bg-slate-900 hover:text-lime-500 disabled:hover:text-slate-50"
         >
           Previous Matchday
         </button>
         <button
           onClick={handleShowCurrentMatchday}
-          className="btn bg-slate-700 text-white px-4 py-2 mx-1"
+          className="btn bg-slate-700 text-slate-50 px-4 py-2 mx-1 disabled:bg-slate-900 hover:text-lime-500 disabled:hover:text-slate-50"
         >
-          Show Current Matchday
+          Current Matchday
         </button>
         <button
           onClick={handleNextMatchday}
@@ -84,7 +84,7 @@ export default function MatchesView({
             currentMatchday ===
             Math.max(...matches.map((match) => match.matchday))
           }
-          className="btn bg-slate-700 text-white px-4 py-2 mx-1 disabled:bg-slate-500"
+          className="btn bg-slate-700 text-slate-50 px-4 py-2 mx-1 disabled:bg-slate-900 hover:text-lime-500 disabled:hover:text-slate-50"
         >
           Next Matchday
         </button>
@@ -96,19 +96,19 @@ export default function MatchesView({
         </h2>
         {filteredMatches.length > 0 ? (
           <table className="w-full table-auto border-collapse text-center">
-            <thead className="bg-slate-800 text-white">
+            <thead className="bg-slate-800 text-slate-50">
               <tr>
                 <th className="w-1/6 px-2 py-1">Date</th>
-                <th className="w-2/6 px-2 py-1"></th>{" "}
-                <th className="w-1/12 px-2 py-1">Fixture</th>{" "}
-                <th className="w-2/6 px-2 py-1"></th>{" "}
+                <th className="w-2/6 px-2 py-1"></th>
+                <th className="w-1/12 px-2 py-1">Fixture</th>
+                <th className="w-2/6 px-2 py-1"></th>
               </tr>
             </thead>
-            <tbody className="bg-slate-900 text-slate-50">
+            <tbody className="bg-slate-900 text-slate-50 border border-slate-700">
               {filteredMatches.map((match, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-slate-800 h-12 border border-slate-700"
+                  className="hover:bg-slate-800 h-12 border-slate-700"
                 >
                   <td className="px-2 py-1">{formatMatchDate(match.date)}</td>
                   <td className="px-2 py-1">
@@ -139,7 +139,7 @@ export default function MatchesView({
             </tbody>
           </table>
         ) : (
-          <div className="text-center text-slate-400">
+          <div className="text-center text-slate-50">
             No matches found for this matchweek
           </div>
         )}

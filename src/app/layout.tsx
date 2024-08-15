@@ -6,8 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Premier League App",
-  description:
-    "Application for viewing Premier League standings and upcoming fixtures",
+  description: "Application for viewing Premier League standings and fixtures",
 };
 
 export default function RootLayout({
