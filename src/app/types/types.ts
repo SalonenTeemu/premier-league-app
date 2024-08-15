@@ -4,6 +4,7 @@ interface Competition {
   flag: string;
   emblem: string;
   season: string;
+  currentMatchday: number;
 }
 
 // Represents a Premier League team
@@ -19,4 +20,20 @@ interface Team {
   goalsFor: number;
   goalsAgainst: number;
   goalDifference: number;
+}
+
+// Represents a Premier League match
+interface Match {
+  matchday: number;
+  date: string;
+  homeTeam: {
+    name: string;
+    crest: string;
+    score: number | null;
+  };
+  awayTeam: {
+    name: string;
+    crest: string;
+    score: number | null;
+  };
 }
