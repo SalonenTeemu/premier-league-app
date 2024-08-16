@@ -126,7 +126,7 @@ export default function MatchesView({
                   </td>
                   <td className="px-2 py-1">
                     <div className="flex items-center justify-start">
-                      <im
+                      <img
                         src={match.awayTeam.crest}
                         alt={`${match.awayTeam.name} crest`}
                         className="w-6 h-6 mr-2"
