@@ -1,9 +1,9 @@
 /**
  * Formats the date and time of a match.
- * @param utcDate - The date and time of the match in UTC format.
- * @returns The formatted date and time of the match.
+ * @param {string} utcDate The date and time of the match in UTC format.
+ * @returns {string} The formatted date and time of the match.
  */
-export function formatMatchDate(utcDate: string): any {
+export function formatMatchDate(utcDate: string): string {
   const localDate = new Date(utcDate);
 
   const day = localDate.getDate();

@@ -61,7 +61,7 @@ export default function MatchesView({
         <img
           src={competition?.emblem}
           alt={`${competition?.name} emblem`}
-          className="w-20 h-20"
+          className="w-24 h-24"
         />
       </div>
       <div className="mb-4 flex justify-center">
@@ -97,7 +97,7 @@ export default function MatchesView({
         {filteredMatches.length > 0 ? (
           <table className="w-full table-auto border-collapse text-center">
             <thead className="bg-slate-800 text-slate-50">
-              <tr>
+              <tr className="border border-slate-700">
                 <th className="w-1/6 px-2 py-1">Date</th>
                 <th className="w-2/6 px-2 py-1"></th>
                 <th className="w-1/12 px-2 py-1">Fixture</th>
@@ -108,7 +108,7 @@ export default function MatchesView({
               {filteredMatches.map((match, index) => (
                 <tr
                   key={index}
-                  className="hover:bg-slate-800 h-12 border-slate-700"
+                  className="hover:bg-slate-800 h-12 border border-slate-700"
                 >
                   <td className="px-2 py-1">{formatMatchDate(match.date)}</td>
                   <td className="px-2 py-1">
@@ -121,12 +121,12 @@ export default function MatchesView({
                       />
                     </div>
                   </td>
-                  <td className="px-2 py-1 font-bold">
+                  <td className="px-2 py-1">
                     {match.homeTeam.score} - {match.awayTeam.score}
                   </td>
                   <td className="px-2 py-1">
                     <div className="flex items-center justify-start">
-                      <img
+                      <im
                         src={match.awayTeam.crest}
                         alt={`${match.awayTeam.name} crest`}
                         className="w-6 h-6 mr-2"

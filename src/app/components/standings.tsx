@@ -3,7 +3,7 @@ import { Competition, Team } from "./types/types";
 /**
  * Fetches the competition and standings data from external football-data.org API.
  * @returns {Promise<any[]>} A promise that resolves to an object containing competition data and an array of Team objects.
- * @returns An an object containing competition data and an standings data.
+ * @returns {Object} An an object containing competition and standings data.
  * @throws {Error} If fetching the data fails or if the data format is invalid.
  */
 async function getCompetitionAndStandingsData(): Promise<{
@@ -90,7 +90,7 @@ function StandingsTable({
         <img
           src={competition?.emblem}
           alt={`${competition?.name} emblem`}
-          className="w-20 h-20"
+          className="w-24 h-24"
         />
       </div>
 
@@ -111,11 +111,14 @@ function StandingsTable({
         </thead>
         <tbody className="bg-slate-900 text-slate-50 border-slate-700">
           {standings.map((team, index) => (
-            <tr key={index} className="hover:bg-slate-800">
+            <tr
+              key={index}
+              className="border border-slate-700 hover:bg-slate-800"
+            >
               <td className="border border-slate-700 px-4 py-2">
                 {team.position}
               </td>
-              <td className="border border-slate-700 px-4 py-2 flex items-center">
+              <td className="px-4 py-2 flex items-center">
                 <img
                   src={team.crest}
                   alt={`${team.name} crest`}

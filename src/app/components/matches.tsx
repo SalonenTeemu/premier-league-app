@@ -4,7 +4,7 @@ import { Competition, Match } from "./types/types";
 /**
  * Fetches the match data from external football-data.org API.
  * @returns {Promise<Match[]>} A promise that resolves to an array of Match objects.
- * @returns An an object containing competition data and an array of matches data.
+ * @returns {Object} An an object containing competition data and an array of matches data.
  * @throws {Error} If fetching the data fails or if the data format is invalid.
  */
 async function getMatchData(): Promise<{
