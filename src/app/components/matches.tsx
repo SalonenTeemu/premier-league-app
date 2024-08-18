@@ -19,6 +19,7 @@ async function getMatchData(): Promise<{
   const res = await fetch(
     "https://api.football-data.org/v4/competitions/PL/matches",
     {
+      cache: "no-store",
       headers: {
         "X-Auth-Token": apiKey,
       },
@@ -37,9 +38,10 @@ async function getMatchData(): Promise<{
     data.matches[0].area &&
     data.filters
   ) {
-    const matches = data.matches.map((PLmatch: Match) => ({
+    const matches = data.matches.map((PLmatch: any) => ({
       matchday: PLmatch.matchday,
       date: PLmatch.utcDate,
+      live: ["LIVE", "IN_PLAY", "PAUSED"].includes(PLmatch.status),
       homeTeam: {
         name: PLmatch.homeTeam.name,
         crest: PLmatch.homeTeam.crest,
@@ -85,7 +87,7 @@ export default async function Matches() {
   }
 
   if (!matches || matches.length === 0) {
-    return <div className="text-slate-50">No matches found</div>;
+    return <div className="text-slate-50">No fixtures found.</div>;
   }
 
   return <MatchesView competition={competition} matches={matches} />;

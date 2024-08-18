@@ -26,6 +26,7 @@ interface Team {
 interface Match {
   matchday: number;
   date: string;
+  live: boolean;
   homeTeam: {
     name: string;
     crest: string;

@@ -18,6 +18,7 @@ async function getCompetitionAndStandingsData(): Promise<{
   const res = await fetch(
     "https://api.football-data.org/v4/competitions/PL/standings",
     {
+      cache: "no-store",
       headers: {
         "X-Auth-Token": apiKey,
       },
@@ -37,7 +38,7 @@ async function getCompetitionAndStandingsData(): Promise<{
     data.area &&
     data.filters
   ) {
-    const standings = data.standings[0].table.map((PLteam: Team) => ({
+    const standings = data.standings[0].table.map((PLteam: any) => ({
       name: PLteam.team.name,
       position: PLteam.position,
       crest: PLteam.team.crest,
@@ -170,7 +171,7 @@ export default async function Standings() {
   }
 
   if (!standings || standings.length === 0) {
-    return <div className="text-slate-50">No standings found</div>;
+    return <div className="text-slate-50">No standings found.</div>;
   }
 
   return <StandingsTable competition={competition} standings={standings} />;
